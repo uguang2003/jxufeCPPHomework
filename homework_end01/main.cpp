@@ -2,124 +2,93 @@
 #include <stack>       // 包含堆栈库
 #include <cmath>       // 包含数学函数库
 #include <string>      // 包含字符串处理库
+#include "ComplexNumber.h"
+#include "Calculator.h"
+#include "BigInteger.h"
 
 using namespace std;  // 使用标准命名空间
 
-// 定义运算符优先级函数
-int priority(char op) {
-    if (op == '^') return 3;          // 指数运算符优先级为3
-    if (op == '*' || op == '/') return 2;  // 乘除运算符优先级为2
-    if (op == '+' || op == '-') return 1;  // 加减运算符优先级为1
-    return 0;                          // 默认返回优先级为0
+// 复数计算
+void complexCalculate() {
+	double real1, imag1, real2, imag2;
+	cout << "输入第一个复数的实部和虚部: ";
+	cin >> real1 >> imag1;
+	cout << "输入第二个复数的实部和虚部: ";
+	cin >> real2 >> imag2;
+
+	ComplexNumber complexNum(real1, imag1, real2, imag2);
+
+	Complex sum = complexNum.add();
+	Complex difference = complexNum.subtract();
+	Complex product = complexNum.multiply();
+	Complex quotient = complexNum.divide();
+
+	cout << "加: " << sum.real << " + " << sum.imag << "i" << endl;
+	cout << "减: " << difference.real << " + " << difference.imag << "i" << endl;
+	cout << "乘: " << product.real << " + " << product.imag << "i" << endl;
+	cout << "除: " << quotient.real << " + " << quotient.imag << "i" << endl;
 }
 
-// 定义应用运算函数
-double applyOp(double a, double b, char op) {
-    switch (op) {
-    case '+': return a + b;   // 加法运算
-    case '-': return a - b;   // 减法运算
-    case '*': return a * b;   // 乘法运算
-    case '/': return a / b;   // 除法运算
-    case '^': return pow(a, b);  // 指数运算
-    default: return 0;        // 默认情况返回0
-    }
-}
+// 无穷精度计算
+void infinitePrecisionCalculate() {
+    string aa, bb;
+    cout << "请输入第一个数:";
+    cin >> aa;
+    cout << "请输入第二个数:";
+    cin >> bb;
+    BigInteger a(aa);
+    BigInteger b(bb);
 
-// 定义表达式求值函数
-double evaluateExpression(string expression) {
-    stack<double> values;   // 存储操作数的堆栈
-    stack<char> ops;        // 存储运算符的堆栈
+	cout << "a + b = " << a + b << endl;
+	cout << "a - b = " << a - b << endl;
+	cout << "a * b = " << a * b << endl;
+	pair<BigInteger, BigInteger> result = a.division(b);
+	cout << "a / b = " << result.first << " 余数:" << result.second << endl;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == ' ')
-            continue;
-
-        if (expression[i] == '(') {
-            ops.push(expression[i]);  // 遇到左括号入栈
-        }
-        else if (isdigit(expression[i]) || expression[i] == '.') {
-            // 处理数字（包括小数）部分
-            double val = 0;
-            double decimal = 10.0;
-            while (i < expression.length() && (isdigit(expression[i]) || expression[i] == '.')) {
-                if (expression[i] == '.') {
-                    // 处理小数部分
-                    i++;
-                    while (i < expression.length() && isdigit(expression[i])) {
-                        val = val + (expression[i] - '0') / decimal;
-                        decimal *= 10.0;
-                        i++;
-                    }
-                }
-                else {
-                    // 处理整数部分
-                    val = val * 10 + expression[i] - '0';
-                    i++;
-                }
-            }
-            values.push(val);  // 将数值入栈
-            i--;
-        }
-        else if (expression[i] == ')') {
-            // 处理右括号
-            while (!ops.empty() && ops.top() != '(') {
-                double val2 = values.top();
-                values.pop();
-
-                double val1 = values.top();
-                values.pop();
-
-                char op = ops.top();
-                ops.pop();
-
-                values.push(applyOp(val1, val2, op));  // 计算并入栈
-            }
-            if (!ops.empty())
-                ops.pop();  // 弹出左括号
-        }
-        else {
-            // 处理运算符
-            while (!ops.empty() && priority(ops.top()) >= priority(expression[i])) {
-                double val2 = values.top();
-                values.pop();
-
-                double val1 = values.top();
-                values.pop();
-
-                char op = ops.top();
-                ops.pop();
-
-                values.push(applyOp(val1, val2, op));  // 计算并入栈
-            }
-            ops.push(expression[i]);  // 运算符入栈
-        }
-    }
-
-    // 处理剩余运算符
-    while (!ops.empty()) {
-        double val2 = values.top();
-        values.pop();
-
-        double val1 = values.top();
-        values.pop();
-
-        char op = ops.top();
-        ops.pop();
-
-        values.push(applyOp(val1, val2, op));  // 计算并入栈
-    }
-
-    return values.top();  // 返回最终结果
+	try {
+		cout << "a % b = " << a % b << endl;
+	}
+	catch (const invalid_argument& e) {
+		cout << "错误: " << e.what() << endl;
+	}
 }
 
 // 主函数
 int main() {
+    Calculator calc;
+    int choose;
     string expression;
-    cout << "请输入表达式：";
-    getline(cin, expression);
+    double result = 0;
 
-    double result = evaluateExpression(expression);  // 调用表达式求值函数
-    cout << "计算结果为: " << result << endl;  // 输出计算结果
+    while (true) {
+        cout << "请选择你的计算模式(1.表达式计算 2.复数计算 3.无穷精度计算 4.退出):";
+        cin >> choose;
+        cin.ignore();
+
+        switch (choose)
+        {
+        case 1:
+            cout << "请输入表达式:";
+            getline(cin, expression);  // 输入表达式
+            result = calc.evaluateExpression(expression);  // 调用表达式求值函数
+            cout << "计算结果为: " << result << endl;  // 输出计算结果
+            break;
+        case 2:
+            complexCalculate();
+            break;
+        case 3:
+            infinitePrecisionCalculate();
+            break;
+        case 4:
+            cout << "退出程序";
+            return 0;
+            break;
+        default:
+            cout << "选择错误";
+            break;
+        }
+
+    }
 
     return 0;
 }

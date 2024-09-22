@@ -132,7 +132,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\homework05\ComplexNumber.h" />
+    <ClInclude Include="BigInteger.h" />
+    <ClInclude Include="ComplexNumber.h" />
+    <ClInclude Include="Calculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
