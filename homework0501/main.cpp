@@ -1,13 +1,13 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include "ComplexNumber.h"
 
 using namespace std;
 
 int main() {
     double real1, imag1, real2, imag2;
-    cout << "è¾“å…¥ç¬¬ä¸€ä¸ªå¤æ•°çš„å®žéƒ¨å’Œè™šéƒ¨: ";
+    cout << "ÊäÈëµÚÒ»¸ö¸´ÊýµÄÊµ²¿ºÍÐé²¿: ";
     cin >> real1 >> imag1;
-    cout << "è¾“å…¥ç¬¬äºŒä¸ªå¤æ•°çš„å®žéƒ¨å’Œè™šéƒ¨: ";
+    cout << "ÊäÈëµÚ¶þ¸ö¸´ÊýµÄÊµ²¿ºÍÐé²¿: ";
     cin >> real2 >> imag2;
 
     ComplexNumber complexNum(real1, imag1, real2, imag2);
@@ -17,10 +17,10 @@ int main() {
     Complex product = complexNum.multiply();
     Complex quotient = complexNum.divide();
 
-    cout << "åŠ : " << sum.real << " + " << sum.imag << "i" << endl;
-    cout << "å‡: " << difference.real << " + " << difference.imag << "i" << endl;
-    cout << "ä¹˜: " << product.real << " + " << product.imag << "i" << endl;
-    cout << "é™¤: " << quotient.real << " + " << quotient.imag << "i" << endl;
+    cout << "¼Ó: " << sum.real << " + " << sum.imag << "i" << endl;
+    cout << "¼õ: " << difference.real << " + " << difference.imag << "i" << endl;
+    cout << "³Ë: " << product.real << " + " << product.imag << "i" << endl;
+    cout << "³ý: " << quotient.real << " + " << quotient.imag << "i" << endl;
 
     return 0;
 }
