@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CProject0101", "Cproject0101\Cproject0101.vcxproj", "{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CProject0102", "CProject0102\CProject0102.vcxproj", "{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "homework0502", "homework0502\homework0502.vcxproj", "{AE2C3875-A210-451A-8164-DAD49274A37F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "homework0401", "homework0401\homework0401.vcxproj", "{27C2ED73-B46B-415E-9856-C6DEACF445A0}"
@@ -35,22 +31,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Debug|x64.ActiveCfg = Debug|x64
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Debug|x64.Build.0 = Debug|x64
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Debug|x86.ActiveCfg = Debug|Win32
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Debug|x86.Build.0 = Debug|Win32
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Release|x64.ActiveCfg = Release|x64
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Release|x64.Build.0 = Release|x64
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Release|x86.ActiveCfg = Release|Win32
-		{A2AA6E00-94DA-4FA8-8E12-2BAA1516BCB3}.Release|x86.Build.0 = Release|Win32
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Debug|x64.ActiveCfg = Debug|x64
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Debug|x64.Build.0 = Debug|x64
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Debug|x86.ActiveCfg = Debug|Win32
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Debug|x86.Build.0 = Debug|Win32
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Release|x64.ActiveCfg = Release|x64
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Release|x64.Build.0 = Release|x64
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Release|x86.ActiveCfg = Release|Win32
-		{DAB9288C-1D7D-47B9-BBA9-E682A654A4C4}.Release|x86.Build.0 = Release|Win32
 		{AE2C3875-A210-451A-8164-DAD49274A37F}.Debug|x64.ActiveCfg = Debug|x64
 		{AE2C3875-A210-451A-8164-DAD49274A37F}.Debug|x64.Build.0 = Debug|x64
 		{AE2C3875-A210-451A-8164-DAD49274A37F}.Debug|x86.ActiveCfg = Debug|Win32
