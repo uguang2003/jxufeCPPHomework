@@ -22,13 +22,17 @@ int main() {
     cout << "请输入p的值：";
     cin >> p;
 
-    cout << "输出长度为100的状态序列：" << endl;
+    double x;
+    cout << "请输入x的值：";
+    cin >> x;
+
+    //cout << "输出长度为100的状态序列：" << endl;
     cout << fixed << setprecision(6);
-    for (int i = 0; i < 100; i++) {
-        double x = i / 100.0;
+    //for (int i = 0; i < 100; i++) {
+        // x = i / 100.0;
         double result = calculateFunction(x, p);
         cout << result << endl;
-    }
+    //}
 
     return 0;
 }

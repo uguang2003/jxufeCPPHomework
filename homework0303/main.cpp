@@ -24,7 +24,7 @@ int main() {
         for (int k = 0; k < height - i - 1; k++) {
             cout << " ";
         }
-
+          
         for (int j = 0; j <= i; j++) {
             cout << triangle[i][j] << " ";
         }
